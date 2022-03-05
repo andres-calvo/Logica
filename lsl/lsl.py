@@ -51,15 +51,14 @@ class listaEnlazada:
     #Mostrar contenido de la lista:
 
     def display(self):
-        elems=[self.primero.data]
+        elems=[]
         cur_node=self.primero
-        
-        while cur_node.next != None:
-            cur_node=cur_node.next
+        while cur_node != None:
             elems.append(cur_node.data)
+            cur_node=cur_node.next
         print(elems)
 
-    # Extraer dato de la lista 
+    # Extraer nodo de la lista 
     #  ej= objeto.get(valor)
     def get(self,index)->node:
         if index >=self.length():
@@ -68,7 +67,7 @@ class listaEnlazada:
         cur_idx=0
         cur_node=self.primero
         while True:
-                if cur_idx==index: return cur_node.data
+                if cur_idx==index: return cur_node
                 cur_node=cur_node.next
                 cur_idx +=1
 
@@ -84,7 +83,7 @@ class listaEnlazada:
             return
         if index == self.length() -1:
             nodo = self.get(index)
-            while nodo.next != self.ultimo:
+            while nodo != self.ultimo:
                 nodo.next = nodo.next
             nodo.next = None
         cur_idx=1
@@ -97,11 +96,11 @@ class listaEnlazada:
                 return
             cur_idx +=1
 
-l = listaEnlazada()
-l.append("y")
-l.append("x")
-l.append("b")
-l.append("a")
-l.display()
-l.erase(3)
-l.display()
+# l = listaEnlazada()
+# l.append("y")
+# l.append("x")
+# l.append("b")
+# l.append("a")
+# l.display()
+# l.erase(3)
+# l.display()
