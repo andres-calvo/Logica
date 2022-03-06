@@ -96,6 +96,29 @@ class listaEnlazada:
                 return
             cur_idx +=1
 
+    def conectar(self, x:node, y:node):
+        if(y == None):
+            if(self.primero == None):
+                self.ultimo = x
+            else:
+                x.asignaLiga()
+            self.primero = x
+            return
+        x.asignaLiga(y.retornaLiga())
+        y.asignaLiga(x)
+        if(y == self.ultimo):
+            self.ultimo =x
+    
+
+    def desconectar(self,nodoX:node,nodoY:node):
+        if nodoY ==None :
+            if nodoX.retornaLiga()==None:
+                self.ultimo=None               
+            self.primero=nodoX.retornaLiga()
+            return
+        nodoY.asignaLiga(nodoX.retornaLiga())    
+        if nodoX== self.ultimo: self.ultimo= nodoY
+    
 # l = listaEnlazada()
 # l.append("y")
 # l.append("x")

@@ -1,11 +1,12 @@
-from hileralsl import hileraLSL
+from lsl.ldl import LDL
 
 
-class hileraLDL(hileraLSL):
+class hileraLDL(LDL):
     primero = None
     ultimo = None
 
     def __init__(self):
+        super().__init__()
         pass
 
     def subHilera(self, i, j):
@@ -22,5 +23,46 @@ class hileraLDL(hileraLSL):
             nuevaHilera.append(nodoAinsertar.data)
 
         return nuevaHilera
+    def posicion(self, letra):
+        contador = 0
+        for i in range(self.length()):
+            if self.get(i).data != letra:
+                contador += 1
+            else:
+                return contador
+
+    def concat(self, hileraT):
+        copia = self
+        tlon = hileraT.length()
+        for i in range(tlon):
+            copia.append(hileraT.get(i).data)
+        return copia
+
+    def insertar(self, hileraT, i):
+        p1 = self.subHilera(0, i)
+        p2 = self.subHilera(i+1, self.length())
+        final = p1.concat(hileraT).concat(p2)
+        self = final
+
+    def borrar(self, posicion, cantidadEliminar):
+        print("hola")
+        for i in range(posicion, cantidadEliminar+posicion):
+            self.erase(i)
+
+    def replace(self, i, j, t):
+        if i < 0 or j < 0:
+            print("Parametros i o j invalidos")
+            return
+
+        if i == 0:
+            partefinal = self.subHilera(j, self.length() - j)
+            return self.concat(t, partefinal)
+
+        parte1 = self.subHilera(0, i)
+        parte2 = self.subHilera(i+j, self.lenght() - i - j)
+        final = parte1.concat(t).concat(parte2)
+        return final
     
 #Esta es un cambio dumb
+
+
