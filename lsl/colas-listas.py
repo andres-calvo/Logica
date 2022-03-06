@@ -1,4 +1,4 @@
-from lsl import listaEnlazada
+from lsl.lsl import listaEnlazada
 from ldl import LDL
 class ColaLSL(listaEnlazada):
     def __init__(self) -> None:
