@@ -1,5 +1,5 @@
-from  lsl import listaEnlazada
-from lsl import node
+from  lsl.lsl import listaEnlazada
+from lsl.lsl import node
 class dobleNodo(node):
     next=None
     prev=None
