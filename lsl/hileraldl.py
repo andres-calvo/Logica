@@ -1,4 +1,4 @@
-from lsl.ldl import LDL
+from ldl import LDL
 
 
 class hileraLDL(LDL):

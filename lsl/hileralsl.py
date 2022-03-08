@@ -1,4 +1,4 @@
-from lsl.lsl import listaEnlazada
+from lsl import listaEnlazada
 # replace,borrar
 
 
